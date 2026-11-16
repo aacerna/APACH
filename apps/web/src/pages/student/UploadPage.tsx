@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { Alert, Button, Card, Field, inputClass, PageHeader, Spinner } from "../../components/ui";
+import { Alert, Button, Card, Field, inputClass, Pacho, PageHeader, Spinner } from "../../components/ui";
 import { api, uploadWithProgress } from "../../lib/api";
 import type { Analysis, DocumentItem, PublicSettings, Section } from "../../lib/types";
 
@@ -63,6 +63,7 @@ export function UploadPage() {
         </Alert>
       ) : (
         <Card>
+          <div className="mb-5"><Pacho size="sm" tone="celeste" message="Tip: guarda tu trabajo como .docx en Word antes de subirlo. ¡Yo me encargo del resto!" /></div>
           <form onSubmit={submit} className="space-y-5" noValidate>
             {error && <Alert tone="error" title="No se pudo completar la revisión">{error}</Alert>}
             <Field label="1. Elige el curso" htmlFor="section" required>

@@ -25,3 +25,7 @@ Añadir nuevas decisiones reales al trabajar, especialmente desviaciones respect
 | 2026-11-16 | Iconos PWA provisionales con la leyenda «PROVISIONAL»; Pacho como marcador neutro | No improvisar identidad institucional | Confirmado |
 | 2026-11-16 | Secreto de build opcional `extra_ca` (Compose) para CA de proxies con inspección TLS; archivo vacío por defecto | El entorno de desarrollo en la nube lo necesitó; útil en redes institucionales. No altera imágenes cuando está vacío | Confirmado |
 | 2026-11-16 | Dominio ficticio de demo `demo.example.edu` | `.local`/`.test` son rechazados por el validador de correo | Confirmado |
+| 2026-11-16 | Logo «apach» y mascota Pacho oficiales integrados (`apps/web/public/brand/`), entregados por la responsable del proyecto; iconos PWA generados desde Pacho | Reemplaza la decisión de iconos provisionales y el marcador neutro de Pacho | Confirmado (reemplaza) |
+| 2026-11-16 | Rediseño juvenil con la paleta completa: cabecera blanca con logo y franja de colores, botones naranja en píldora, tarjetas de acción por color, Pacho con burbuja de diálogo | Solicitud de diseño más juvenil y atractivo | Confirmado |
+| 2026-11-16 | Regla de contraste: rellenos naranja/celeste/amarillo con texto #10232A (5.3–11:1); petróleo y terracota-700 con texto blanco (≥5.8:1) | Mantener WCAG AA usando colores de marca claros como fondo | Confirmado |
+| 2026-11-16 | Tipografías empaquetadas: Nunito (texto) y Bitter (títulos, afín al logotipo), vía @fontsource | Funcionan sin conexión (sin Google Fonts) | Confirmado |

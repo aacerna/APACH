@@ -5,6 +5,14 @@ import { Card, EmptyState, PageHeader, inputClass } from "../../components/ui";
 import { ECC_NOTE, GUIDE_CATEGORIES, GUIDE_SOURCE_NOTE, GUIDES, guideBySlug } from "../../lib/guides";
 import { NotFoundPage } from "./StatusPages";
 
+const CATEGORY_TONES: Record<string, string> = {
+  formato: "bg-naranja-100 text-tinta",
+  estructura: "bg-celeste-100 text-tinta",
+  citas: "bg-amarillo-100 text-tinta",
+  referencias: "bg-terracota-50 text-terracota-700",
+  errores: "bg-petroleo text-white",
+};
+
 export function LearnPage() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("ALL");
@@ -17,11 +25,11 @@ export function LearnPage() {
     <div>
       <PageHeader title="Aprende APA" crumbs={[{ to: "/", label: "Inicio" }, { label: "Aprende APA" }]}
         subtitle="Fichas breves para aplicar APA 7: qué es, cómo se aplica, ejemplo, errores frecuentes y cómo corregirlo. Disponible sin conexión." />
-      <p className="mb-4 rounded-lg bg-celeste-50 p-3 text-sm">{ECC_NOTE}</p>
+      <p className="mb-5 rounded-2xl bg-celeste-50 p-4 text-sm font-semibold">{ECC_NOTE}</p>
       <div className="mb-4 flex flex-wrap gap-2" role="group" aria-label="Categorías">
-        <button onClick={() => setCat("ALL")} aria-pressed={cat === "ALL"} className={`min-h-11 rounded-full px-4 text-sm ${cat === "ALL" ? "bg-petroleo text-white" : "bg-white ring-1 ring-borde"}`}>Todas</button>
+        <button onClick={() => setCat("ALL")} aria-pressed={cat === "ALL"} className={`min-h-11 rounded-full px-4 text-sm font-bold ${cat === "ALL" ? "bg-petroleo text-white" : "bg-white ring-2 ring-borde"}`}>Todas</button>
         {GUIDE_CATEGORIES.map((c) => (
-          <button key={c.id} onClick={() => setCat(c.id)} aria-pressed={cat === c.id} className={`min-h-11 rounded-full px-4 text-sm ${cat === c.id ? "bg-petroleo text-white" : "bg-white ring-1 ring-borde"}`}>{c.label}</button>
+          <button key={c.id} onClick={() => setCat(c.id)} aria-pressed={cat === c.id} className={`min-h-11 rounded-full px-4 text-sm font-bold ${cat === c.id ? "bg-petroleo text-white" : "bg-white ring-2 ring-borde"}`}>{c.label}</button>
         ))}
       </div>
       <label htmlFor="guide-search" className="sr-only">Buscar en la guía</label>
@@ -29,9 +37,9 @@ export function LearnPage() {
       {list.length === 0 ? <EmptyState title="No hay fichas con esa búsqueda" /> : (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((g) => (
-            <Card as="li" key={g.slug}>
-              <p className="text-xs font-semibold uppercase text-terracota-700">{GUIDE_CATEGORIES.find((c) => c.id === g.category)?.label}</p>
-              <h2 className="mt-1 text-lg font-semibold text-petroleo"><Link className="hover:underline" to={`/aprende/${g.slug}`}>{g.title}</Link></h2>
+            <Card as="li" key={g.slug} className="relative transition hover:-translate-y-1 hover:shadow-lg">
+              <span className={`inline-block rounded-full px-3 py-1 text-xs font-extrabold ${CATEGORY_TONES[g.category] ?? "bg-fondo text-petroleo"}`}>{GUIDE_CATEGORIES.find((c) => c.id === g.category)?.label}</span>
+              <h2 className="mt-3 text-xl font-bold text-petroleo"><Link className="after:absolute after:inset-0 hover:underline" to={`/aprende/${g.slug}`}>{g.title}</Link></h2>
               <p className="mt-1 text-sm text-tenue">{g.summary}</p>
             </Card>
           ))}

@@ -38,7 +38,7 @@ Claude Code: actualizar al terminar cada fase con fecha, commits/archivos, coman
 ## Faltantes institucionales
 - Guía APA ECC oficial: **PENDIENTE**.
 - Enlaces de plantillas ECC en Drive: **PENDIENTE DE CONFIGURACIÓN**.
-- Activo oficial de Pacho y video: **PENDIENTES/OPCIONALES**.
+- Activo oficial de Pacho y logotipo: **RECIBIDOS e integrados** (2026-11-16). Video de bienvenida: **PENDIENTE/OPCIONAL**.
 - Datos académicos reales: no necesarios para demo; usar únicamente ficticios.
 
 ## Diario de ejecución

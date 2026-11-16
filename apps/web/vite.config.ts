@@ -17,26 +17,26 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: "prompt",
-      includeAssets: ["icons/*.png", "icons/*.svg"],
+      includeAssets: ["icons/*.png", "icons/*.svg", "brand/*.png"],
       manifest: {
         name: "APACH · Apapacho: Tu asistente virtual de APA",
         short_name: "APACH",
-        description: "Asistente de normas APA 7 de la Escuela de Ciencias de la Comunicación (UJMD). Iconos provisionales.",
+        description: "Asistente de normas APA 7 de la Escuela de Ciencias de la Comunicación (UJMD).",
         lang: "es-SV",
         start_url: "/",
         scope: "/",
         display: "standalone",
-        background_color: "#F8F6F1",
+        background_color: "#FFF8EF",
         theme_color: "#213E46",
         icons: [
           { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
           { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
-          { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+          { src: "/icons/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
       },
       workbox: {
         // Precaché de la app, la guía y el generador (todo empaquetado en el bundle).
-        globPatterns: ["**/*.{js,css,html,png,svg,woff2}"],
+        globPatterns: ["**/*.{js,css,html,png,svg,woff,woff2}"],
         navigateFallback: "/index.html",
         navigateFallbackDenylist: [/^\/api\//],
         // La API protegida nunca se cachea (NetworkOnly).

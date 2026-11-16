@@ -10,7 +10,8 @@ export async function login(page: Page, local: string) {
   await page.getByLabel("Correo institucional").fill(`${local}@demo.example.edu`);
   await page.getByLabel("Contraseña").fill(PASSWORD);
   await page.getByRole("button", { name: "Ingresar" }).click();
-  await expect(page.getByRole("button", { name: "Cerrar sesión" })).toBeVisible();
+  await expect(page).not.toHaveURL(/\/login/);
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 }
 
 export async function logout(page: Page) {

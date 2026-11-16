@@ -40,8 +40,8 @@ export function TeacherDashboard() {
               <h2 className="text-lg font-semibold text-petroleo"><Link className="hover:underline" to={`/docente/secciones/${s.id}`}>{s.course.name} · Sección {s.code}</Link></h2>
               <p className="text-sm text-tenue">{s.course.code} · {s.term.name} · {s.course.program.name}</p>
               <dl className="my-4 grid grid-cols-4 gap-2 text-center">
-                {([["Estudiantes", stats.students], ["Documentos", stats.documents], ["Revisados", stats.reviewed], ["Pendientes", stats.pending]] as const).map(([l, n]) => (
-                  <div key={l} className="rounded-lg bg-fondo p-2"><dt className="text-xs text-tenue">{l}</dt><dd className="text-xl font-bold">{n}</dd></div>
+                {([["Estudiantes", stats.students, "bg-celeste-50"], ["Documentos", stats.documents, "bg-amarillo-50"], ["Revisados", stats.reviewed, "bg-petroleo-50"], ["Pendientes", stats.pending, "bg-naranja-50"]] as const).map(([l, n, tone]) => (
+                  <div key={l} className={`rounded-2xl p-3 ${tone}`}><dt className="text-xs font-bold text-tenue">{l}</dt><dd className="font-display text-2xl font-bold">{n}</dd></div>
                 ))}
               </dl>
               <StatsTable stats={stats} />

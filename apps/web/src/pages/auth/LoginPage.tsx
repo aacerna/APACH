@@ -36,18 +36,26 @@ export function LoginPage() {
   };
 
   return (
-    <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-      <div className="flex flex-col justify-center">
-        <h1 className="text-3xl font-bold text-petroleo">Bienvenida, bienvenido a APACH</h1>
-        <p className="mt-3 text-tenue">Tu asistente para aplicar normas APA 7: revisa tu documento, aprende a corregir y crea referencias.</p>
-        <p className="mt-3 text-sm text-tenue">El acceso es solo para cuentas autorizadas por la Escuela de Ciencias de la Comunicación. No existe registro público.</p>
-        <p className="mt-4 text-sm">
-          ¿Solo quieres consultar? <Link className="font-semibold text-celeste-700 underline" to="/aprende">Abre la guía Aprende APA</Link> o el{" "}
-          <Link className="font-semibold text-celeste-700 underline" to="/generador">generador de referencias</Link>.
-        </p>
-      </div>
+    <div className="mx-auto grid max-w-5xl items-center gap-8 md:grid-cols-[1.1fr_1fr]">
+      <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-naranja-100 via-amarillo-50 to-celeste-100 p-6 shadow-suave sm:p-10">
+        <div aria-hidden="true" className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-amarillo/50" />
+        <div aria-hidden="true" className="absolute -bottom-10 -right-6 h-40 w-40 rounded-full bg-celeste/30" />
+        <div className="relative">
+          <p className="text-sm font-extrabold uppercase tracking-wider text-terracota-700">Apapacho · tu asistente virtual de APA</p>
+          <h1 className="mt-2 text-3xl font-bold text-petroleo sm:text-4xl">Tu <span className="marca">apapacho</span> para escribir con normas APA</h1>
+          <p className="mt-3 text-lg text-tinta">Revisa tu documento, aprende a corregir y crea referencias en segundos.</p>
+          <div className="mt-6 flex items-end gap-3">
+            <img src="/brand/pacho.png" alt="Pacho, la mascota de APACH" className="pacho-saluda h-28 w-28 drop-shadow-lg sm:h-32 sm:w-32" />
+            <p className="mb-3 rounded-3xl rounded-bl-md bg-white/85 px-4 py-3 text-sm font-semibold text-tinta shadow-suave">
+              ¿Solo quieres consultar? Abre <Link className="font-extrabold text-celeste-700 underline" to="/aprende">Aprende APA</Link> o el{" "}
+              <Link className="font-extrabold text-celeste-700 underline" to="/generador">generador</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
       <Card>
-        <h2 className="mb-4 text-xl font-semibold text-petroleo">Iniciar sesión</h2>
+        <h2 className="text-2xl font-bold text-petroleo">Iniciar sesión</h2>
+        <p className="mb-5 mt-1 text-sm text-tenue">Solo cuentas autorizadas por la Escuela de Ciencias de la Comunicación. No existe registro público.</p>
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
           {error && <Alert tone="error">{error}</Alert>}
           <Field label="Correo institucional" htmlFor="email" error={errors.email?.message} required>

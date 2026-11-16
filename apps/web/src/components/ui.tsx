@@ -3,33 +3,35 @@ import { Link } from "react-router-dom";
 import type { Severity, Verification } from "../lib/types";
 import { severityLabel, verificationLabel } from "../lib/format";
 
-type Variant = "primary" | "secondary" | "ghost" | "danger";
+type Variant = "primary" | "secondary" | "ghost" | "danger" | "dark" | "sun";
 const variants: Record<Variant, string> = {
-  primary: "bg-terracota-700 text-white hover:bg-terracota disabled:bg-terracota-700/50",
-  secondary: "bg-white text-petroleo border border-petroleo/30 hover:bg-petroleo-50",
-  ghost: "text-petroleo hover:bg-petroleo-50",
-  danger: "bg-white text-terracota-700 border border-terracota-700/40 hover:bg-terracota-50",
+  primary: "bg-naranja text-tinta shadow-pop hover:bg-naranja-600 hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:shadow-none disabled:hover:translate-y-0",
+  dark: "bg-petroleo text-white shadow-suave hover:bg-petroleo-700 hover:-translate-y-0.5 disabled:opacity-50",
+  sun: "bg-amarillo text-tinta shadow-suave hover:bg-amarillo-100 disabled:opacity-50",
+  secondary: "bg-white text-petroleo ring-2 ring-petroleo/15 hover:ring-celeste hover:bg-celeste-50 disabled:opacity-50",
+  ghost: "text-petroleo hover:bg-naranja-50",
+  danger: "bg-white text-terracota-700 ring-2 ring-terracota/30 hover:bg-terracota-50",
 };
 
 export function Button({ variant = "primary", className = "", ...props }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
   return (
     <button
       {...props}
-      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-extrabold transition disabled:cursor-not-allowed ${variants[variant]} ${className}`}
     />
   );
 }
 
 export function LinkButton({ to, variant = "primary", children, className = "" }: { to: string; variant?: Variant; children: ReactNode; className?: string }) {
   return (
-    <Link to={to} className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold no-underline transition ${variants[variant]} ${className}`}>
+    <Link to={to} className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-extrabold no-underline transition ${variants[variant]} ${className}`}>
       {children}
     </Link>
   );
 }
 
 export function Card({ children, className = "", as: Tag = "section" }: { children: ReactNode; className?: string; as?: "section" | "div" | "article" | "li" }) {
-  return <Tag className={`rounded-xl border border-borde bg-white p-5 shadow-sm ${className}`}>{children}</Tag>;
+  return <Tag className={`rounded-3xl border border-borde/70 bg-white p-5 shadow-suave sm:p-6 ${className}`}>{children}</Tag>;
 }
 
 export function PageHeader({ title, subtitle, actions, crumbs }: { title: string; subtitle?: ReactNode; actions?: ReactNode; crumbs?: Array<{ to?: string; label: string }> }) {
@@ -49,8 +51,8 @@ export function PageHeader({ title, subtitle, actions, crumbs }: { title: string
       )}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-petroleo sm:text-3xl">{title}</h1>
-          {subtitle && <p className="mt-1 max-w-3xl text-tenue">{subtitle}</p>}
+          <h1 className="text-3xl font-bold text-petroleo sm:text-4xl">{title}</h1>
+          {subtitle && <p className="mt-2 max-w-3xl text-lg text-tenue">{subtitle}</p>}
         </div>
         {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
       </div>
@@ -63,10 +65,10 @@ export function Alert({ tone = "info", title, children }: { tone?: "info" | "war
     info: "border-celeste bg-celeste-50",
     warning: "border-naranja bg-naranja-50",
     error: "border-terracota-700 bg-terracota-50",
-    success: "border-petroleo bg-petroleo-50",
+    success: "border-amarillo bg-amarillo-50",
   };
   return (
-    <div role={tone === "error" ? "alert" : "status"} className={`rounded-lg border-l-4 p-4 text-sm ${tones[tone]}`}>
+    <div role={tone === "error" ? "alert" : "status"} className={`rounded-2xl border-l-[6px] p-4 text-sm ${tones[tone]}`}>
       {title && <p className="mb-1 font-semibold text-tinta">{title}</p>}
       <div className="text-tinta">{children}</div>
     </div>
@@ -84,8 +86,9 @@ export function Spinner({ label = "Cargando…" }: { label?: string }) {
 
 export function EmptyState({ title, children, action }: { title: string; children?: ReactNode; action?: ReactNode }) {
   return (
-    <div className="rounded-xl border border-dashed border-borde bg-white/60 p-8 text-center">
-      <p className="font-semibold text-petroleo">{title}</p>
+    <div className="rounded-3xl border-2 border-dashed border-naranja/30 bg-white/70 p-8 text-center">
+      <img src="/brand/pacho.png" alt="" className="mx-auto mb-3 h-16 w-16 opacity-90" />
+      <p className="font-display text-lg font-bold text-petroleo">{title}</p>
       {children && <div className="mx-auto mt-2 max-w-xl text-sm text-tenue">{children}</div>}
       {action && <div className="mt-4">{action}</div>}
     </div>
@@ -131,7 +134,7 @@ export function Field({ label, htmlFor, error, help, children, required }: { lab
 }
 
 export const inputClass =
-  "min-h-11 w-full rounded-lg border border-borde bg-white px-3 py-2 text-sm text-tinta placeholder:text-gray-400 focus:border-celeste-700 aria-[invalid=true]:border-terracota-700";
+  "min-h-11 w-full rounded-xl border-2 border-borde bg-white px-3 py-2 text-sm text-tinta placeholder:text-gray-400 focus:border-celeste focus:outline-none aria-[invalid=true]:border-terracota-700";
 
 /** Botón que pide confirmación explícita antes de una acción destructiva. */
 export function ConfirmButton({ onConfirm, children, message, variant = "danger", disabled }: { onConfirm: () => void; children: ReactNode; message: string; variant?: Variant; disabled?: boolean }) {
@@ -155,14 +158,21 @@ export function ConfirmButton({ onConfirm, children, message, variant = "danger"
   );
 }
 
-/** Espacio reservado para el activo oficial de Pacho (pendiente). No es un logotipo. */
-export function PachoPlaceholder({ message }: { message: string }) {
+/** Pacho, la mascota oficial de APACH, con una burbuja de diálogo. */
+export function Pacho({ message, size = "md", tone = "amarillo" }: { message?: ReactNode; size?: "sm" | "md" | "lg"; tone?: "amarillo" | "celeste" | "blanco" }) {
+  const dims = { sm: "h-14 w-14", md: "h-20 w-20 sm:h-24 sm:w-24", lg: "h-32 w-32 sm:h-40 sm:w-40" }[size];
+  const bubble = { amarillo: "bg-amarillo-50 ring-amarillo", celeste: "bg-celeste-50 ring-celeste", blanco: "bg-white ring-borde" }[tone];
   return (
-    <div className="flex items-start gap-3 rounded-xl bg-amarillo-50 p-4">
-      <div aria-hidden="true" className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-petroleo/30 text-[10px] font-semibold uppercase text-tenue">
-        Pacho
-      </div>
-      <p className="text-sm text-tinta">{message}</p>
+    <div className="flex items-end gap-3">
+      <img src="/brand/pacho.png" alt="Pacho, la mascota de APACH" className={`pacho-saluda shrink-0 drop-shadow-md ${dims}`} />
+      {message && (
+        <div className={`relative mb-2 rounded-3xl rounded-bl-md px-4 py-3 text-sm font-semibold text-tinta ring-2 ${bubble}`}>{message}</div>
+      )}
     </div>
   );
+}
+
+/** Compatibilidad con pantallas existentes. */
+export function PachoPlaceholder({ message }: { message: string }) {
+  return <Pacho message={message} />;
 }
