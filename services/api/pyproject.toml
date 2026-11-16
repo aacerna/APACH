@@ -1,0 +1,16 @@
+[project]
+name = "apach-api"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 140
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+ignore = ["B008", "E501"]  # B008: patrón Depends() de FastAPI; E501: mensajes en español
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

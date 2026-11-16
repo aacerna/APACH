@@ -1,0 +1,67 @@
+# APACH — entorno local reproducible: web (Nginx + PWA) → api (FastAPI) → postgres.
+# Solo se expone el puerto web; API y base de datos quedan en la red interna.
+name: apach
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-apach}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Define POSTGRES_PASSWORD en .env}
+      POSTGRES_DB: ${POSTGRES_DB:-apach}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks: [internal]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: services/api/Dockerfile
+      secrets: [extra_ca]
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      APACH_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-apach}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-apach}
+      APACH_ENV: ${APACH_ENV:-demo}
+      APACH_EXPOSE_DEV_LINKS: ${APACH_EXPOSE_DEV_LINKS:-true}
+      APACH_PUBLIC_BASE_URL: ${APACH_PUBLIC_BASE_URL:-http://localhost:8080}
+      APACH_COOKIE_SECURE: ${APACH_COOKIE_SECURE:-false}
+      APACH_MAX_UPLOAD_MB: ${APACH_MAX_UPLOAD_MB:-10}
+      APACH_INSTITUTIONAL_CONTACT: ${APACH_INSTITUTIONAL_CONTACT:-Coordinación académica ECC}
+      APACH_CORS_ORIGINS: '["${APACH_PUBLIC_BASE_URL:-http://localhost:8080}"]'
+    volumes:
+      - document_storage:/data/documents
+    networks: [internal]
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      secrets: [extra_ca]
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "${WEB_PORT:-8080}:80"
+    networks: [internal]
+
+secrets:
+  # CA adicional solo para el build (proxy con inspección TLS). Por defecto, archivo vacío.
+  extra_ca:
+    file: ${EXTRA_CA_FILE:-./docker/extra-ca.pem}
+
+volumes:
+  postgres_data:
+  document_storage:
+
+networks:
+  internal:

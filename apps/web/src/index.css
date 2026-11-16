@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* Tokens de marca APACH (docs/02-UX-UI.md). Jerarquía: petróleo = estructura; terracota = acción;
+   celeste = información; naranja = advertencia; amarillo suave = resaltado puntual. */
+@theme {
+  --color-petroleo: #213E46;
+  --color-petroleo-700: #1A3238;
+  --color-petroleo-50: #EAF0F1;
+  --color-terracota: #B2632D;
+  --color-terracota-700: #8F4C1F;
+  --color-terracota-50: #F7ECE4;
+  --color-naranja: #EC8022;
+  --color-naranja-50: #FDF0E3;
+  --color-celeste: #5C9CBA;
+  --color-celeste-700: #2F6C88;
+  --color-celeste-50: #E8F2F7;
+  --color-amarillo: #DDDA6F;
+  --color-amarillo-50: #F8F7DE;
+  --color-fondo: #F8F6F1;
+  --color-tinta: #1F2A2E;
+  --color-tenue: #56656B;
+  --color-borde: #D9DEDF;
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+html { background: var(--color-fondo); color: var(--color-tinta); }
+body { margin: 0; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 3px solid var(--color-celeste-700); outline-offset: 2px; }
+.skip-link { position: absolute; left: -999px; top: 0; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 50; background: white; padding: .5rem 1rem; border-radius: .5rem; }
+.hanging { padding-left: 2.2em; text-indent: -2.2em; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

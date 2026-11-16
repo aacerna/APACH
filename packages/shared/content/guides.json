@@ -1,0 +1,357 @@
+{
+  "version": "2026.11.1",
+  "source_note": "Explicaciones originales y breves elaboradas para APACH a partir de APA (2020), Publication Manual of the American Psychological Association (7.ª ed.). No sustituyen el manual ni la orientación docente. Ejemplos con autores y obras ficticios.",
+  "ecc_note": "Criterios institucionales ECC pendientes de incorporación. Ante dudas sobre portada, índice u otros elementos locales, consulta a tu docente.",
+  "categories": [
+    { "id": "formato", "label": "Formato del documento" },
+    { "id": "estructura", "label": "Estructura del trabajo" },
+    { "id": "citas", "label": "Citas en el texto" },
+    { "id": "referencias", "label": "Lista de referencias" },
+    { "id": "errores", "label": "Errores frecuentes" }
+  ],
+  "guides": [
+    {
+      "slug": "margins",
+      "title": "Márgenes",
+      "category": "formato",
+      "version": "1",
+      "summary": "Todo el trabajo usa márgenes de 2.54 cm (1 pulgada) en los cuatro lados.",
+      "what": "Los márgenes son el espacio en blanco entre el borde de la hoja y el texto. APA 7 fija un margen uniforme para que todos los trabajos tengan una presentación pareja y legible.",
+      "how": [
+        "Aplica 2.54 cm arriba, abajo, a la izquierda y a la derecha.",
+        "Si tu documento tiene varias secciones (por ejemplo, una página horizontal), revisa los márgenes de cada una.",
+        "Deja el margen de encuadernación en 0 cm salvo que tu docente indique otra cosa."
+      ],
+      "example": { "label": "Configuración correcta", "text": "Superior 2.54 cm · Inferior 2.54 cm · Izquierdo 2.54 cm · Derecho 2.54 cm" },
+      "common_errors": [
+        "Dejar los márgenes predeterminados de otra plantilla (por ejemplo, 3 cm a la izquierda).",
+        "Cambiar márgenes solo en una parte del documento.",
+        "Agregar un margen de encuadernación sin notarlo."
+      ],
+      "fix": [
+        "En Word: Disposición (o Diseño de página) → Márgenes → Normal.",
+        "Para revisar todas las secciones: Márgenes → Márgenes personalizados → Aplicar a: Todo el documento."
+      ]
+    },
+    {
+      "slug": "fonts",
+      "title": "Fuente y tamaño de letra",
+      "category": "formato",
+      "version": "1",
+      "summary": "Usa una fuente legible y su tamaño recomendado, de forma consistente en todo el trabajo.",
+      "what": "APA 7 no impone una única fuente; recomienda varias opciones legibles con un tamaño adecuado para cada una.",
+      "how": [
+        "Opciones con serifa: Times New Roman 12 pt, Georgia 11 pt.",
+        "Opciones sin serifa: Calibri 11 pt, Arial 11 pt, Lucida Sans Unicode 10 pt.",
+        "Usa la misma fuente en todo el texto, incluidos títulos y referencias.",
+        "Las figuras pueden usar una fuente sin serifa de entre 8 y 14 pt."
+      ],
+      "example": { "label": "Ejemplo", "text": "Todo el trabajo en Times New Roman 12 pt, incluidos los títulos de nivel 1 y la lista de referencias." },
+      "common_errors": [
+        "Usar un tamaño grande (14 pt) para «rellenar» páginas.",
+        "Mezclar fuentes al copiar y pegar texto desde internet.",
+        "Usar fuentes decorativas difíciles de leer."
+      ],
+      "fix": [
+        "Selecciona todo (Ctrl + E en Word en español, Ctrl + A en inglés) y aplica la fuente elegida.",
+        "Al pegar texto, usa «Mantener solo texto» para no arrastrar formatos externos.",
+        "Modifica el estilo Normal para que la fuente quede definida en todo el documento."
+      ]
+    },
+    {
+      "slug": "line-spacing",
+      "title": "Interlineado",
+      "category": "formato",
+      "version": "1",
+      "summary": "Todo el texto va a doble espacio y sin espacio adicional entre párrafos.",
+      "what": "El interlineado es la distancia entre líneas. APA 7 usa doble espacio en todo el trabajo: portada, resumen, cuerpo, citas en bloque y referencias.",
+      "how": [
+        "Aplica interlineado «Doble» a todo el documento.",
+        "Deja el espaciado anterior y posterior de los párrafos en 0 pt.",
+        "Excepciones: el contenido de tablas y figuras, notas al pie y ecuaciones pueden tener otro espaciado."
+      ],
+      "example": { "label": "Configuración correcta", "text": "Párrafo → Interlineado: Doble · Espaciado anterior: 0 pt · Espaciado posterior: 0 pt" },
+      "common_errors": [
+        "Dejar el interlineado 1.15 o 1.5 de la plantilla.",
+        "Separar párrafos con una línea en blanco o con espaciado posterior de 8 pt.",
+        "Usar interlineado «Exacto» en puntos, que puede cortar caracteres."
+      ],
+      "fix": [
+        "Selecciona todo → Inicio → Párrafo → Interlineado: Doble.",
+        "En el mismo cuadro, coloca «Anterior: 0 pt» y «Posterior: 0 pt».",
+        "Borra las líneas vacías que usabas para separar párrafos."
+      ]
+    },
+    {
+      "slug": "paragraph-indentation",
+      "title": "Sangría de primera línea",
+      "category": "formato",
+      "version": "1",
+      "summary": "Cada párrafo del cuerpo empieza con una sangría de 1.27 cm (0.5 pulgadas).",
+      "what": "La sangría de primera línea desplaza el inicio de cada párrafo para que el lector identifique dónde comienza una nueva idea.",
+      "how": [
+        "Aplica sangría especial «Primera línea» de 1.27 cm a los párrafos del cuerpo.",
+        "No llevan sangría: títulos, la etiqueta y el párrafo del resumen, las citas en bloque (que tienen sangría izquierda completa), los títulos de tablas y figuras y las referencias (que usan sangría francesa)."
+      ],
+      "example": { "label": "Ejemplo", "text": "      La alfabetización informacional permite a estudiantes ficticios de comunicación evaluar fuentes antes de citarlas…" },
+      "common_errors": [
+        "Escribir varios espacios en blanco en lugar de usar la sangría.",
+        "Dejar todos los párrafos alineados al margen, sin sangría.",
+        "Usar una sangría de 1 cm o 2 cm."
+      ],
+      "fix": [
+        "Selecciona los párrafos del cuerpo → Párrafo → Sangría especial: Primera línea → 1.27 cm.",
+        "Elimina los espacios en blanco iniciales que hayas escrito a mano."
+      ]
+    },
+    {
+      "slug": "headings",
+      "title": "Títulos y niveles de encabezado",
+      "category": "estructura",
+      "version": "1",
+      "summary": "Los títulos se organizan en niveles con un formato distinto para cada nivel.",
+      "what": "Los niveles de encabezado muestran la jerarquía de las secciones. Todos usan la misma fuente y tamaño que el texto.",
+      "how": [
+        "Nivel 1: centrado, en negrita, con mayúsculas en las palabras principales.",
+        "Nivel 2: alineado a la izquierda, en negrita.",
+        "Nivel 3: alineado a la izquierda, en negrita y cursiva.",
+        "Niveles 4 y 5: con sangría, al inicio del párrafo y terminados en punto.",
+        "No se titula «Introducción» al inicio: el título del trabajo ocupa ese lugar."
+      ],
+      "example": { "label": "Ejemplo de nivel 1", "text": "Método (centrado y en negrita)" },
+      "common_errors": [
+        "Numerar los títulos (1., 1.1) sin indicación docente.",
+        "Usar un tamaño de letra mayor para los títulos.",
+        "Saltar niveles (de nivel 1 a nivel 3)."
+      ],
+      "fix": [
+        "Aplica estilos de título de Word y modifícalos al formato APA para mantener consistencia.",
+        "Revisa la jerarquía en el panel de navegación."
+      ]
+    },
+    {
+      "slug": "title-page",
+      "title": "Portada",
+      "category": "estructura",
+      "version": "1",
+      "summary": "La portada de estudiante incluye título, autoría, institución, curso, docente y fecha.",
+      "what": "APA 7 distingue la portada de estudiante de la portada profesional. En trabajos de clase se usa la versión de estudiante, salvo indicación docente.",
+      "how": [
+        "Título en negrita, centrado, en la mitad superior de la página.",
+        "Debajo, separados por líneas a doble espacio: nombre, programa e institución, curso, docente y fecha.",
+        "APACH no evalúa automáticamente la portada."
+      ],
+      "example": { "label": "Orden sugerido", "text": "Título · Nombre del estudiante · Escuela y universidad · Curso · Docente · Fecha de entrega" },
+      "common_errors": [
+        "Agregar logos o elementos decorativos no solicitados.",
+        "Usar una plantilla de otra institución."
+      ],
+      "fix": [
+        "Usa la plantilla oficial de tu escuela cuando esté disponible en «Plantillas»."
+      ],
+      "ecc_pending": true
+    },
+    {
+      "slug": "abstract",
+      "title": "Resumen",
+      "category": "estructura",
+      "version": "1",
+      "summary": "Si tu docente lo solicita, el resumen va en página aparte, en un solo párrafo sin sangría.",
+      "what": "El resumen sintetiza el propósito, el método, los resultados y las conclusiones del trabajo.",
+      "how": [
+        "Etiqueta «Resumen» centrada y en negrita.",
+        "Un único párrafo sin sangría de primera línea.",
+        "Palabras clave en una línea aparte, con sangría, y la etiqueta en cursiva."
+      ],
+      "example": { "label": "Etiqueta", "text": "Resumen (centrado, negrita) y debajo un párrafo sin sangría." },
+      "common_errors": ["Aplicar sangría al párrafo del resumen.", "Dividir el resumen en varios párrafos."],
+      "fix": ["Quita la sangría especial del párrafo del resumen."]
+    },
+    {
+      "slug": "in-text-citations",
+      "title": "Citas en el texto",
+      "category": "citas",
+      "version": "1",
+      "summary": "Cada idea tomada de otra fuente se cita con apellido y año, de forma narrativa o parentética.",
+      "what": "La cita en el texto indica de quién es una idea y permite encontrar la obra en la lista de referencias.",
+      "how": [
+        "Narrativa: el autor forma parte de la oración: Castro (2019) sostiene que…",
+        "Parentética: autor y año entre paréntesis al final de la idea: (Castro, 2019).",
+        "Dos autores: siempre ambos apellidos (Martínez y Ortiz, 2021).",
+        "Tres o más autores: solo el primero y «et al.» desde la primera cita (Pérez et al., 2020).",
+        "Autor corporativo con sigla: la primera vez el nombre completo y la sigla; después solo la sigla.",
+        "Sin fecha: (Castro, s. f.)."
+      ],
+      "example": { "label": "Ejemplos ficticios", "text": "Según Castro (2019), la verificación se aprende en el aula. Esta práctica es gradual (Pérez et al., 2020)." },
+      "common_errors": [
+        "Incluir el nombre de pila o las iniciales en la cita.",
+        "Escribir todos los autores cuando son tres o más.",
+        "Olvidar el año o escribirlo distinto al de la referencia."
+      ],
+      "fix": [
+        "Revisa que el apellido y el año coincidan exactamente con la lista de referencias.",
+        "Usa el generador de APACH para obtener la cita narrativa y parentética de cada fuente."
+      ]
+    },
+    {
+      "slug": "paraphrasing",
+      "title": "Paráfrasis y cita textual",
+      "category": "citas",
+      "version": "1",
+      "summary": "Parafrasear es explicar con tus palabras; la cita textual reproduce las palabras exactas e indica la página.",
+      "what": "APA 7 recomienda parafrasear con frecuencia y reservar las citas textuales para cuando la redacción exacta importa.",
+      "how": [
+        "Paráfrasis: cita autor y año; la página es opcional pero útil.",
+        "Cita textual corta (menos de 40 palabras): entre comillas, con página o párrafo: (Castro, 2019, p. 14).",
+        "Cita textual larga (40 palabras o más): en bloque."
+      ],
+      "example": { "label": "Cita textual corta", "text": "Castro (2019) afirma que «verificar es un hábito, no un trámite» (p. 14)." },
+      "common_errors": ["Cambiar unas pocas palabras y presentarlo como paráfrasis.", "Omitir el número de página en citas textuales."],
+      "fix": ["Lee la fuente, ciérrala y escribe la idea con tu propia estructura; luego compara y cita."]
+    },
+    {
+      "slug": "block-quotations",
+      "title": "Citas en bloque (40 palabras o más)",
+      "category": "citas",
+      "version": "1",
+      "summary": "Las citas textuales de 40 palabras o más van en un párrafo aparte, sin comillas y con sangría izquierda.",
+      "what": "Una cita en bloque separa visualmente un fragmento largo copiado de forma literal.",
+      "how": [
+        "Comienza la cita en una línea nueva.",
+        "Aplica sangría izquierda de 1.27 cm a todo el bloque.",
+        "No uses comillas de apertura ni de cierre.",
+        "Mantén el doble espacio.",
+        "Coloca la cita parentética después del punto final del bloque: … final del texto. (Castro, 2019, p. 14)"
+      ],
+      "example": { "label": "Estructura", "text": "Párrafo introductorio: Castro (2019) describe el proceso:\n[bloque con sangría izquierda de 1.27 cm, sin comillas] … documentar cada fuente. (p. 14)" },
+      "common_errors": [
+        "Dejar una cita larga entre comillas dentro del párrafo.",
+        "Poner comillas a una cita en bloque.",
+        "Usar formato de bloque para citas cortas."
+      ],
+      "fix": [
+        "Cuenta las palabras de la cita: si son 40 o más, sácala a un párrafo nuevo.",
+        "Párrafo → Sangría izquierda: 1.27 cm; Especial: (ninguna)."
+      ]
+    },
+    {
+      "slug": "references-list",
+      "title": "Lista de referencias",
+      "category": "referencias",
+      "version": "1",
+      "summary": "Al final del trabajo, en página nueva, con el título «Referencias» centrado y en negrita.",
+      "what": "La lista de referencias reúne todas las obras citadas en el texto, con la información necesaria para localizarlas.",
+      "how": [
+        "Empieza en una página nueva al final del trabajo.",
+        "Título «Referencias» centrado y en negrita (no «Bibliografía», que incluiría lecturas no citadas).",
+        "Una entrada por obra citada, a doble espacio y con sangría francesa.",
+        "Ordena alfabéticamente por el apellido del primer autor."
+      ],
+      "example": { "label": "Entrada de libro ficticio", "text": "Castro, L. (2019). Medios digitales y ciudadanía. Editorial Ficticia." },
+      "common_errors": [
+        "Titular la sección «Bibliografía» o «Fuentes».",
+        "Incluir obras leídas pero no citadas.",
+        "Numerar o usar viñetas en las referencias."
+      ],
+      "fix": [
+        "Cambia el título a «Referencias» y aplica centrado y negrita.",
+        "Quita numeración o viñetas: Inicio → Numeración → Ninguna."
+      ]
+    },
+    {
+      "slug": "hanging-indent",
+      "title": "Sangría francesa",
+      "category": "referencias",
+      "version": "1",
+      "summary": "En cada referencia, la primera línea va al margen y las siguientes con sangría de 1.27 cm.",
+      "what": "La sangría francesa facilita ubicar el autor de cada entrada al recorrer la lista.",
+      "how": [
+        "Selecciona todas las entradas de la lista.",
+        "Párrafo → Sangría especial: Francesa → 1.27 cm.",
+        "La sangría izquierda general debe quedar en 0 cm."
+      ],
+      "example": { "label": "Aspecto", "text": "Martínez, R., & Ortiz, P. (2021). Lectura crítica en redes sociales. Revista Ficticia de\n        Comunicación, 12(3), 45–60." },
+      "common_errors": [
+        "Simular la sangría con Enter y tabulaciones.",
+        "Aplicar sangría de primera línea en lugar de francesa."
+      ],
+      "fix": ["Elimina los saltos manuales y aplica la sangría francesa desde el cuadro Párrafo."]
+    },
+    {
+      "slug": "reference-order",
+      "title": "Orden de las referencias",
+      "category": "referencias",
+      "version": "1",
+      "summary": "Ordena por el apellido del primer autor, letra por letra; «nada precede a algo».",
+      "what": "El orden alfabético permite encontrar rápidamente la referencia de cada cita.",
+      "how": [
+        "Ordena por el primer apellido; si coincide, por las iniciales.",
+        "«Nada precede a algo»: Pérez, A. va antes que Pérez García, B.",
+        "Mismo autor: primero la obra más antigua; las obras sin fecha (s. f.) van primero.",
+        "Mismo autor y año: agrega letras (2020a, 2020b) y ordena por título.",
+        "Autor corporativo: ordénalo por la primera palabra significativa de su nombre completo.",
+        "Sin autor: ordena por la primera palabra significativa del título."
+      ],
+      "example": { "label": "Orden correcto", "text": "Castro, L. (2019)… · Martínez, R., & Ortiz, P. (2021)… · Pérez, A. (2018)… · Pérez García, B. (2016)…" },
+      "common_errors": ["Ordenar por orden de aparición en el texto.", "Ordenar por el nombre de pila."],
+      "fix": ["En Word: selecciona la lista → Inicio → Ordenar → Párrafos, Texto, Ascendente; revisa después los casos especiales."]
+    },
+    {
+      "slug": "citation-reference-match",
+      "title": "Correspondencia entre citas y referencias",
+      "category": "referencias",
+      "version": "1",
+      "summary": "Cada cita del texto tiene su referencia y cada referencia se cita al menos una vez.",
+      "what": "Citas y referencias forman un sistema: apellido y año deben coincidir exactamente en ambos lugares. Excepción: las comunicaciones personales se citan en el texto pero no van en la lista.",
+      "how": [
+        "Recorre tu texto buscando cada cita y localiza su entrada en la lista.",
+        "Verifica que el apellido esté escrito igual (tildes incluidas) y que el año coincida.",
+        "Elimina de la lista las obras que no citaste."
+      ],
+      "example": { "label": "Coincidencia", "text": "Texto: (Martínez y Ortiz, 2021) → Lista: Martínez, R., & Ortiz, P. (2021). …" },
+      "common_errors": [
+        "Citar «Ruiz, 2020» cuando la referencia dice 2021.",
+        "Dejar en la lista una obra que se descartó al editar el trabajo."
+      ],
+      "fix": [
+        "APACH detecta estos casos de forma heurística: revisa cada aviso, porque puede haber falsos positivos (nombres propios, citas atípicas)."
+      ]
+    },
+    {
+      "slug": "tables-figures",
+      "title": "Tablas y figuras",
+      "category": "estructura",
+      "version": "1",
+      "summary": "Cada tabla o figura lleva número en negrita, título en cursiva y, si hace falta, una nota.",
+      "what": "Tablas y figuras presentan datos de forma visual y se numeran en el orden en que se mencionan.",
+      "how": [
+        "Número en negrita: «Tabla 1» o «Figura 1».",
+        "Debajo, el título en cursiva y con mayúsculas en las palabras principales.",
+        "Nota debajo de la tabla o figura cuando se requiera aclarar o citar la fuente.",
+        "APACH no evalúa automáticamente tablas ni figuras."
+      ],
+      "example": { "label": "Ejemplo", "text": "Tabla 1 (negrita)\nUso de redes sociales por semestre (cursiva)" },
+      "common_errors": ["Poner el título debajo de la tabla.", "Omitir la fuente de una figura tomada de otra obra."],
+      "fix": ["Usa Referencias → Insertar título y ajusta el formato al estilo APA."]
+    },
+    {
+      "slug": "common-errors",
+      "title": "Errores frecuentes al aplicar APA",
+      "category": "errores",
+      "version": "1",
+      "summary": "Una lista de comprobación rápida antes de entregar tu trabajo.",
+      "what": "Muchos errores se repiten y son fáciles de corregir con una revisión final ordenada.",
+      "how": [
+        "Márgenes de 2.54 cm y una sola fuente recomendada.",
+        "Doble espacio en todo el documento y sin espacio extra entre párrafos.",
+        "Sangría de 1.27 cm en párrafos del cuerpo.",
+        "Citas con apellido y año que coinciden con la lista.",
+        "Lista «Referencias» en página nueva, alfabética y con sangría francesa.",
+        "Citas de 40 palabras o más en bloque."
+      ],
+      "example": { "label": "Consejo", "text": "Revisa tu documento con APACH, corrige y vuelve a cargarlo: cada revisión queda guardada como una nueva versión." },
+      "common_errors": ["Confiar en el formato de una plantilla sin revisarlo.", "Copiar referencias de sitios web sin verificar los datos."],
+      "fix": ["Usa el generador de referencias de APACH con los datos reales de la fuente; no completes datos que no aparecen en ella."]
+    }
+  ]
+}
