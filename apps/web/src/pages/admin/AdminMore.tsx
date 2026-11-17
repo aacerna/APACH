@@ -35,7 +35,7 @@ export function AdminMemberships() {
       {err && <ErrorState error={err} />}
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
-          <h2 className="mb-3 text-lg font-semibold text-petroleo">Matricular estudiante</h2>
+          <h2 className="mb-3 text-lg font-black text-petroleo">Matricular estudiante</h2>
           <form className="mb-4 grid gap-2" onSubmit={(e) => { e.preventDefault(); addEn.mutate(undefined); }}>
             <select aria-label="Estudiante" required className={inputClass} value={en.student_id} onChange={(e) => setEn({ ...en, student_id: e.target.value })}>
               <option value="">Estudiante…</option>{students.data?.map((u) => <option key={u.id} value={u.id}>{u.full_name} · {u.email}</option>)}</select>
@@ -46,7 +46,7 @@ export function AdminMemberships() {
           {list(enrollments.data, (id) => delEn.mutate(id), "¿Retirar esta matrícula? Si el estudiante ya tiene documentos en la sección, el sistema lo impedirá.")}
         </Card>
         <Card>
-          <h2 className="mb-3 text-lg font-semibold text-petroleo">Asignar docente</h2>
+          <h2 className="mb-3 text-lg font-black text-petroleo">Asignar docente</h2>
           <form className="mb-4 grid gap-2" onSubmit={(e) => { e.preventDefault(); addAs.mutate(undefined); }}>
             <select aria-label="Docente" required className={inputClass} value={as.teacher_id} onChange={(e) => setAs({ ...as, teacher_id: e.target.value })}>
               <option value="">Docente…</option>{teachers.data?.map((u) => <option key={u.id} value={u.id}>{u.full_name} · {u.email}</option>)}</select>
@@ -95,7 +95,7 @@ export function AdminImport() {
       </Card>
       {preview && (
         <Card>
-          <h2 className="mb-2 text-lg font-semibold text-petroleo">Vista previa (lote #{preview.batch_id})</h2>
+          <h2 className="mb-2 text-lg font-black text-petroleo">Vista previa (lote #{preview.batch_id})</h2>
           <p className="text-sm">Total: {preview.summary.total} · Crear y matricular: {preview.summary.create_and_enroll} · Matricular existentes: {preview.summary.enroll_existing} · Ya matriculados: {preview.summary.already_enrolled} · Con errores: <strong>{preview.summary.errors}</strong></p>
           <div className="mt-3 max-h-96 overflow-auto">
             <table className="w-full text-left text-sm">
@@ -148,7 +148,7 @@ export function AdminTemplates() {
       <PageHeader title="Plantillas (Google Drive)" crumbs={[{ to: "/admin", label: "Administración" }, { label: "Plantillas" }]}
         subtitle="Registra los enlaces HTTPS oficiales. Mientras no existan, los estudiantes ven un estado vacío (sin enlaces ficticios)." />
       <Card>
-        <h2 className="mb-3 font-semibold text-petroleo">{editing ? "Editar plantilla" : "Nueva plantilla"}</h2>
+        <h2 className="mb-3 font-black text-petroleo">{editing ? "Editar plantilla" : "Nueva plantilla"}</h2>
         <form className="grid gap-3 sm:grid-cols-2" onSubmit={(e) => { e.preventDefault(); save.mutate(undefined); }}>
           <Field label="Nombre" htmlFor="t-name" required><input id="t-name" required className={inputClass} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></Field>
           <Field label="Tipo" htmlFor="t-type" required help="Ej.: Trabajo escrito, Ensayo, Informe."><input id="t-type" required className={inputClass} value={form.template_type} onChange={(e) => setForm({ ...form, template_type: e.target.value })} /></Field>
@@ -207,7 +207,7 @@ export function AdminRules() {
         </table>
       </Card>
       <Card>
-        <h2 className="mb-3 font-semibold text-petroleo">Registrar regla institucional (solo metadatos)</h2>
+        <h2 className="mb-3 font-black text-petroleo">Registrar regla institucional (solo metadatos)</h2>
         <form className="grid gap-3 sm:grid-cols-2" onSubmit={(e) => { e.preventDefault(); create.mutate(undefined); }}>
           <Field label="Código" htmlFor="r-code" required help="Formato ECC-NOMBRE"><input id="r-code" required pattern="ECC-[A-Z0-9\-]+" className={inputClass} value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value.toUpperCase() })} /></Field>
           <Field label="Nombre" htmlFor="r-name" required><input id="r-name" required className={inputClass} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></Field>

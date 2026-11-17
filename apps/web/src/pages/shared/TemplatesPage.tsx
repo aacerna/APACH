@@ -13,7 +13,7 @@ export function TemplatesPage() {
         <ul className="grid gap-4 md:grid-cols-2">
           {q.data.map((t) => (
             <Card as="li" key={t.id}>
-              <h2 className="font-semibold text-petroleo">{t.name}</h2>
+              <h2 className="font-black text-petroleo">{t.name}</h2>
               <p className="text-xs text-tenue">{t.template_type}{t.program_name ? ` · ${t.program_name}` : " · Todos los programas"}</p>
               {t.description && <p className="mt-2 text-sm">{t.description}</p>}
               <a className="mt-3 inline-flex min-h-11 items-center rounded-lg bg-terracota-700 px-4 text-sm font-semibold text-white hover:bg-terracota" href={t.url} target="_blank" rel="noreferrer noopener">Abrir plantilla (Google Drive)</a>

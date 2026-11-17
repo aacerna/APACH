@@ -39,8 +39,8 @@ function Evidence({ finding }: { finding: Finding }) {
   const simple = Object.entries(ev).filter(([k, v]) => EVIDENCE_LABELS[k] && v !== null && v !== undefined && !Array.isArray(v));
   const examples = Array.isArray(ev.examples) ? (ev.examples as Array<Record<string, unknown>>) : [];
   return (
-    <details className="mt-3 rounded-lg bg-fondo p-3 text-sm">
-      <summary className="cursor-pointer font-semibold text-petroleo">Ver evidencia medida</summary>
+    <details className="mt-3 rounded-2xl border-2 border-borde p-3 text-sm">
+      <summary className="cursor-pointer font-extrabold uppercase tracking-wide text-celeste-700">Ver evidencia medida</summary>
       {simple.length > 0 && (
         <dl className="mt-2 grid gap-x-4 gap-y-1 sm:grid-cols-[max-content_1fr]">
           {simple.map(([k, v]) => (<Fragment key={k}><dt className="text-tenue">{EVIDENCE_LABELS[k]}</dt><dd className="break-words">{renderValue(v)}</dd></Fragment>))}
@@ -49,7 +49,7 @@ function Evidence({ finding }: { finding: Finding }) {
       {examples.length > 0 && (
         <ul className="mt-2 space-y-1">
           {examples.slice(0, 8).map((ex, i) => (
-            <li key={i} className="rounded bg-white p-2">
+            <li key={i} className="rounded-xl bg-fondo p-2">
               <span className="font-semibold">Párrafo {Number(ex.paragraph_index) + 1}:</span> «{String(ex.excerpt)}»
               {Object.entries(ex).filter(([k]) => !["paragraph_index", "excerpt"].includes(k)).map(([k, v]) => (
                 <span key={k} className="ml-2 text-xs text-tenue">{EXAMPLE_LABELS[k] ?? k.replace(/_/g, " ")}: {renderValue(v)}</span>
@@ -72,11 +72,11 @@ function GuideDialog({ slug, onClose }: { slug: string | null; onClose: () => vo
     else ref.current?.close?.();
   }, [slug]);
   return (
-    <dialog ref={ref} onClose={onClose} aria-labelledby="guide-title" className="m-auto max-h-[85vh] w-[min(42rem,92vw)] overflow-y-auto rounded-xl p-0 backdrop:bg-black/40">
+    <dialog ref={ref} onClose={onClose} aria-labelledby="guide-title" className="m-auto max-h-[85vh] w-[min(42rem,92vw)] overflow-y-auto rounded-3xl border-2 border-borde p-0 backdrop:bg-black/40">
       {guide && (
         <div className="p-6">
           <div className="mb-3 flex items-start justify-between gap-3">
-            <h2 id="guide-title" className="text-xl font-bold text-petroleo">Aprender a corregir: {guide.title}</h2>
+            <h2 id="guide-title" className="text-xl font-black text-petroleo">Aprender a corregir: {guide.title}</h2>
             <Button variant="ghost" onClick={onClose} aria-label="Cerrar guía">✕</Button>
           </div>
           <GuideContent guide={guide} headingLevel={3} />
@@ -109,7 +109,7 @@ function Comments({ doc }: { doc: DocumentItem }) {
   return (
     <Card>
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <h2 className="text-lg font-semibold text-petroleo">Comentarios del docente</h2>
+        <h2 className="text-lg font-black text-petroleo">Comentarios del docente</h2>
         {isTeacher && (
           <Button variant="secondary" onClick={() => review.mutate(doc.review_status === "REVIEWED" ? "PENDING" : "REVIEWED")} disabled={review.isPending}>
             {doc.review_status === "REVIEWED" ? "Marcar como pendiente" : "Marcar como revisado"}
@@ -119,7 +119,7 @@ function Comments({ doc }: { doc: DocumentItem }) {
       {comments.isLoading ? <Spinner /> : comments.data?.length ? (
         <ul className="space-y-3">
           {comments.data.map((c) => (
-            <li key={c.id} className="rounded-lg bg-fondo p-3 text-sm">
+            <li key={c.id} className="rounded-2xl border-2 border-borde bg-amarillo-50 p-4 text-sm font-semibold">
               <p className="text-xs text-tenue">{c.teacher_name} · {fmtDate(c.created_at)}{new Date(c.updated_at).getTime() - new Date(c.created_at).getTime() > 1000 ? " (editado)" : ""}</p>
               {editing?.id === c.id ? (
                 <div className="mt-2 space-y-2">
@@ -190,7 +190,7 @@ export function DocumentResultsPage() {
       <PageHeader title={d.original_filename} crumbs={[back, { label: "Resultados" }]}
         subtitle={<>{d.section_label}{user?.role !== "STUDENT" && <> · Estudiante: {d.student_name}</>} · {fmtSize(d.size_bytes)} · {statusLabel[d.status]} · {reviewLabel[d.review_status]}</>}
         actions={<>
-          <a className="inline-flex min-h-11 items-center rounded-lg border border-petroleo/30 bg-white px-4 text-sm font-semibold text-petroleo hover:bg-petroleo-50" href={`/api/v1/documents/${d.id}/download`}>Descargar original</a>
+          <a className="btn-3d inline-flex min-h-12 items-center rounded-2xl border-2 border-b-4 border-borde bg-white px-5 text-sm font-extrabold uppercase tracking-wide text-petroleo" href={`/api/v1/documents/${d.id}/download`}>Descargar original</a>
           {user?.role !== "TEACHER" && <Button onClick={() => reanalyze.mutate()} disabled={reanalyze.isPending}>{reanalyze.isPending ? "Analizando…" : "Volver a analizar"}</Button>}
         </>} />
 
@@ -207,14 +207,14 @@ export function DocumentResultsPage() {
           </Alert>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {([
-              ["ERROR", "Errores verificados", counts.errors, "bg-terracota-700 text-white"],
-              ["POSSIBLE_PROBLEM", "Posibles problemas", counts.possible_problems, "bg-naranja-50 ring-1 ring-naranja"],
-              ["NEEDS_TEACHER", "Para revisión docente", counts.needs_teacher, "bg-celeste-50 ring-1 ring-celeste"],
-              ["NOT_VERIFIABLE", "No verificables", counts.not_verifiable, "bg-white ring-1 ring-borde"],
+              ["ERROR", "Errores verificados", counts.errors, "bg-terracota-700 border-terracota-800 text-white"],
+              ["POSSIBLE_PROBLEM", "Posibles problemas", counts.possible_problems, "bg-naranja-50 border-naranja"],
+              ["NEEDS_TEACHER", "Para revisión docente", counts.needs_teacher, "bg-celeste-50 border-celeste"],
+              ["NOT_VERIFIABLE", "No verificables", counts.not_verifiable, "bg-white border-borde"],
             ] as const).map(([key, label, n, cls]) => (
               <button key={key} onClick={() => setFilter(filter === key ? "ALL" : key)} aria-pressed={filter === key}
-                className={`rounded-xl p-4 text-left shadow-sm ${cls} ${filter === key ? "outline outline-3 outline-celeste-700" : ""}`}>
-                <span className="block text-3xl font-bold">{n}</span><span className="text-sm">{label}</span>
+                className={`btn-3d rounded-2xl border-2 p-4 text-left ${cls} ${filter === key ? "outline outline-3 outline-offset-2 outline-celeste-700" : ""}`}>
+                <span className="block text-4xl font-black">{n}</span><span className="text-xs font-extrabold uppercase tracking-wide">{label}</span>
               </button>
             ))}
           </div>
@@ -240,7 +240,7 @@ export function DocumentResultsPage() {
           </div>
 
           <section aria-labelledby="findings-title">
-            <h2 id="findings-title" className="mb-3 text-lg font-semibold text-petroleo">Hallazgos ({findings.length})</h2>
+            <h2 id="findings-title" className="mb-3 text-lg font-black text-petroleo">Hallazgos ({findings.length})</h2>
             {findings.length === 0 ? (
               <EmptyState title={analysis.data.findings.length ? "Ningún hallazgo con estos filtros" : "No se encontraron problemas en las reglas comprobadas"}>
                 {analysis.data.findings.length ? null : "Revisa también la tabla de reglas: algunas pueden no aplicar o no ser verificables en tu documento."}
@@ -250,10 +250,10 @@ export function DocumentResultsPage() {
                 {findings.map((f) => (
                   <Card as="li" key={f.id}>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded bg-petroleo-50 px-2 py-0.5 text-xs font-bold text-petroleo">{f.rule_code} · {RULE_NAMES[f.rule_code] ?? ""}</span>
+                      <span className="rounded-full bg-fondo px-3 py-1 text-xs font-extrabold text-petroleo ring-2 ring-borde">{f.rule_code} · {RULE_NAMES[f.rule_code] ?? ""}</span>
                       <SeverityBadge severity={f.severity} verification={f.verification_status} />
                     </div>
-                    <p className="mt-2 font-medium">{f.message}</p>
+                    <p className="mt-3 text-lg font-extrabold leading-snug">{f.message}</p>
                     {f.location.paragraph_index !== undefined ? (
                       <p className="mt-1 text-sm text-tenue">Ubicación: párrafo {f.location.paragraph_index + 1}{f.location.excerpt ? <> — «{f.location.excerpt}»</> : null}</p>
                     ) : f.location.section_index !== undefined ? (
@@ -274,7 +274,7 @@ export function DocumentResultsPage() {
           </section>
 
           <Card>
-            <h2 className="mb-3 text-lg font-semibold text-petroleo">Reglas comprobadas</h2>
+            <h2 className="mb-3 text-lg font-black text-petroleo">Reglas comprobadas</h2>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead><tr className="text-tenue"><th className="py-2 pr-3">Regla</th><th className="py-2 pr-3">Resultado</th><th className="py-2 pr-3">Elementos revisados</th><th className="py-2">Nota</th></tr></thead>
@@ -290,7 +290,7 @@ export function DocumentResultsPage() {
                 </tbody>
               </table>
             </div>
-            <h3 className="mt-4 font-semibold text-petroleo">Límites de esta revisión</h3>
+            <h3 className="mt-4 font-black text-petroleo">Límites de esta revisión</h3>
             <ul className="mt-1 list-disc pl-5 text-sm text-tenue">{(analysis.data.summary.limitations ?? []).map((l) => <li key={l}>{l}</li>)}</ul>
             <p className="mt-2 text-xs text-tenue">Leyenda: {Object.values(severityLabel).join(" · ")}.</p>
           </Card>

@@ -4,7 +4,7 @@ import { ECC_NOTE } from "../lib/guides";
 export function GuideContent({ guide, headingLevel = 2 }: { guide: Guide; headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? "h2" : "h3";
   const sectionClass = "mt-5";
-  const hClass = "mb-2 text-base font-bold text-petroleo";
+  const hClass = "mb-2 text-base font-black text-petroleo";
   return (
     <div className="text-sm leading-relaxed text-tinta">
       <p className="text-base">{guide.summary}</p>

@@ -48,7 +48,7 @@ export function TokenPasswordPage({ purpose }: { purpose: "ACTIVATION" | "RESET"
   return (
     <div className="mx-auto max-w-md">
       <Card>
-        <h1 className="mb-2 text-xl font-bold text-petroleo">{isActivation ? "Activa tu cuenta" : "Crea una nueva contraseña"}</h1>
+        <h1 className="mb-2 text-xl font-black text-petroleo">{isActivation ? "Activa tu cuenta" : "Crea una nueva contraseña"}</h1>
         {!token || token.length <= 10 ? (
           <Alert tone="error">El enlace está incompleto. Solicita uno nuevo a la coordinación académica.</Alert>
         ) : status.isLoading ? <Spinner label="Verificando enlace…" /> : !status.data?.valid ? (

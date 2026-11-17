@@ -37,11 +37,11 @@ export function TeacherDashboard() {
         <ul className="grid gap-4 lg:grid-cols-2">
           {q.data.map(({ section: s, stats }) => (
             <Card as="li" key={s.id}>
-              <h2 className="text-lg font-semibold text-petroleo"><Link className="hover:underline" to={`/docente/secciones/${s.id}`}>{s.course.name} · Sección {s.code}</Link></h2>
+              <h2 className="text-lg font-black text-petroleo"><Link className="hover:underline" to={`/docente/secciones/${s.id}`}>{s.course.name} · Sección {s.code}</Link></h2>
               <p className="text-sm text-tenue">{s.course.code} · {s.term.name} · {s.course.program.name}</p>
               <dl className="my-4 grid grid-cols-4 gap-2 text-center">
                 {([["Estudiantes", stats.students, "bg-celeste-50"], ["Documentos", stats.documents, "bg-amarillo-50"], ["Revisados", stats.reviewed, "bg-petroleo-50"], ["Pendientes", stats.pending, "bg-naranja-50"]] as const).map(([l, n, tone]) => (
-                  <div key={l} className={`rounded-2xl p-3 ${tone}`}><dt className="text-xs font-bold text-tenue">{l}</dt><dd className="font-display text-2xl font-bold">{n}</dd></div>
+                  <div key={l} className={`rounded-2xl border-2 border-borde p-3 ${tone}`}><dt className="text-[11px] font-extrabold uppercase tracking-wide text-tenue">{l}</dt><dd className="text-3xl font-black">{n}</dd></div>
                 ))}
               </dl>
               <StatsTable stats={stats} />
@@ -69,11 +69,11 @@ export function TeacherSectionPage() {
       <PageHeader title={current ? `${current.section.course.name} · Sección ${current.section.code}` : "Sección"} crumbs={[{ to: "/docente", label: "Mis secciones" }, { label: "Sección" }]}
         subtitle={current?.stats.disclaimer} />
       <section aria-labelledby="docs-title">
-        <h2 id="docs-title" className="mb-3 text-lg font-semibold text-petroleo">Documentos cargados</h2>
+        <h2 id="docs-title" className="mb-3 text-lg font-black text-petroleo">Documentos cargados</h2>
         {docs.isLoading ? <Spinner /> : docs.data?.length ? <DocumentTable docs={docs.data} showStudent /> : <EmptyState title="Aún no hay documentos en esta sección" />}
       </section>
       <section aria-labelledby="students-title">
-        <h2 id="students-title" className="mb-3 text-lg font-semibold text-petroleo">Estudiantes matriculados</h2>
+        <h2 id="students-title" className="mb-3 text-lg font-black text-petroleo">Estudiantes matriculados</h2>
         {students.isLoading ? <Spinner /> : (
           <Card>
             <ul className="divide-y divide-borde text-sm">

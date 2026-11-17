@@ -39,7 +39,7 @@ export function LearnPage() {
           {list.map((g) => (
             <Card as="li" key={g.slug} className="relative transition hover:-translate-y-1 hover:shadow-lg">
               <span className={`inline-block rounded-full px-3 py-1 text-xs font-extrabold ${CATEGORY_TONES[g.category] ?? "bg-fondo text-petroleo"}`}>{GUIDE_CATEGORIES.find((c) => c.id === g.category)?.label}</span>
-              <h2 className="mt-3 text-xl font-bold text-petroleo"><Link className="after:absolute after:inset-0 hover:underline" to={`/aprende/${g.slug}`}>{g.title}</Link></h2>
+              <h2 className="mt-3 text-xl font-black text-petroleo"><Link className="after:absolute after:inset-0 hover:underline" to={`/aprende/${g.slug}`}>{g.title}</Link></h2>
               <p className="mt-1 text-sm text-tenue">{g.summary}</p>
             </Card>
           ))}

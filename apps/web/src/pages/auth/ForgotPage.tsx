@@ -22,7 +22,7 @@ export function ForgotPage() {
   return (
     <div className="mx-auto max-w-md">
       <Card>
-        <h1 className="mb-2 text-xl font-bold text-petroleo">Recuperar acceso</h1>
+        <h1 className="mb-2 text-xl font-black text-petroleo">Recuperar acceso</h1>
         <p className="mb-4 text-sm text-tenue">APACH no envía correos automáticamente. Registraremos tu solicitud y la coordinación académica podrá generarte un enlace de restablecimiento.</p>
         {message ? <Alert tone="success">{message}</Alert> : (
           <form onSubmit={submit} className="space-y-4">

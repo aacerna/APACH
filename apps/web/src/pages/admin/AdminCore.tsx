@@ -45,7 +45,7 @@ export function AdminSummary() {
     <div className="space-y-6">
       <PageHeader title="Administración" subtitle="Resumen agregado de uso. Cada reporte generado queda registrado en la auditoría." />
       <Card>
-        <h2 className="mb-3 font-semibold text-petroleo">Filtros del reporte</h2>
+        <h2 className="mb-3 font-black text-petroleo">Filtros del reporte</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           <Field label="Ciclo" htmlFor="f-term"><select id="f-term" className={inputClass} value={filters.term_id} onChange={(e) => setFilters({ ...filters, term_id: e.target.value })}>
             <option value="">Todos</option>{terms.data?.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}</select></Field>
@@ -59,11 +59,11 @@ export function AdminSummary() {
         <>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
             {([["Documentos", report.data.documents], ["Estudiantes con documentos", report.data.students_with_documents], ["Estudiantes", report.data.users.STUDENT], ["Docentes", report.data.users.TEACHER], ["Administradores", report.data.users.ADMIN]] as const).map(([l, n]) => (
-              <Card key={l} className="text-center"><p className="text-3xl font-bold text-petroleo">{n}</p><p className="text-sm text-tenue">{l}</p></Card>
+              <Card key={l} className="text-center"><p className="text-3xl font-black text-petroleo">{n}</p><p className="text-sm text-tenue">{l}</p></Card>
             ))}
           </div>
           <Card>
-            <h2 className="mb-2 font-semibold text-petroleo">Hallazgos por regla (última revisión de cada documento)</h2>
+            <h2 className="mb-2 font-black text-petroleo">Hallazgos por regla (última revisión de cada documento)</h2>
             {report.data.findings_by_rule.length ? (
               <table className="w-full text-left text-sm">
                 <thead><tr className="text-tenue"><th className="py-1">Regla</th><th>Errores verificados</th><th>Posibles / docente</th><th>No verificables</th></tr></thead>
@@ -108,7 +108,7 @@ export function AdminUsers() {
       <DevLink link={link} />
       {(toggle.error || issue.error) && <ErrorState error={toggle.error ?? issue.error} />}
       <Card>
-        <h2 className="mb-3 font-semibold text-petroleo">Crear cuenta</h2>
+        <h2 className="mb-3 font-black text-petroleo">Crear cuenta</h2>
         <form className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5" onSubmit={(e: FormEvent) => { e.preventDefault(); create.mutate(); }}>
           <Field label="Correo" htmlFor="u-email" required><input id="u-email" type="email" required className={inputClass} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} /></Field>
           <Field label="Nombre" htmlFor="u-first" required><input id="u-first" required className={inputClass} value={form.first_name} onChange={(e) => setForm({ ...form, first_name: e.target.value })} /></Field>
@@ -150,7 +150,7 @@ export function AdminUsers() {
 
 // ------------------------------------------------------------------ estructura académica
 function Section_({ title, children }: { title: string; children: ReactNode }) {
-  return <Card><h2 className="mb-3 text-lg font-semibold text-petroleo">{title}</h2>{children}</Card>;
+  return <Card><h2 className="mb-3 text-lg font-black text-petroleo">{title}</h2>{children}</Card>;
 }
 
 export function AdminAcademic() {

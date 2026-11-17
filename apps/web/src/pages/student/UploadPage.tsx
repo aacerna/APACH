@@ -63,7 +63,7 @@ export function UploadPage() {
         </Alert>
       ) : (
         <Card>
-          <div className="mb-5"><Pacho size="sm" tone="celeste" message="Tip: guarda tu trabajo como .docx en Word antes de subirlo. ¡Yo me encargo del resto!" /></div>
+          <div className="mb-5"><Pacho size="sm" message="Tip: guarda tu trabajo como .docx en Word antes de subirlo. ¡Yo me encargo del resto!" /></div>
           <form onSubmit={submit} className="space-y-5" noValidate>
             {error && <Alert tone="error" title="No se pudo completar la revisión">{error}</Alert>}
             <Field label="1. Elige el curso" htmlFor="section" required>

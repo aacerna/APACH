@@ -156,8 +156,8 @@ export function GeneratorPage() {
             {filtered.map((t) => (
               <li key={t.id}>
                 <button type="button" onClick={() => chooseType(t.source_type!)} aria-pressed={values.source_type === t.source_type}
-                  className={`w-full rounded-lg px-3 py-2 text-left text-sm ${values.source_type === t.source_type ? "bg-petroleo font-semibold text-white" : "hover:bg-petroleo-50"}`}>
-                  {t.label}<span className={`block text-xs ${values.source_type === t.source_type ? "text-white/80" : "text-tenue"}`}>{CATEGORIES.find((c) => c.id === t.category)?.label}</span>
+                  className={`w-full rounded-2xl border-2 px-3 py-2.5 text-left text-sm font-extrabold ${values.source_type === t.source_type ? "border-celeste bg-celeste-50 text-celeste-700" : "border-transparent hover:bg-fondo"}`}>
+                  {t.label}<span className="block text-xs font-semibold text-tenue">{CATEGORIES.find((c) => c.id === t.category)?.label}</span>
                 </button>
               </li>
             ))}
@@ -167,16 +167,16 @@ export function GeneratorPage() {
 
         <div className="space-y-6">
           <Card>
-            <h2 className="text-lg font-semibold text-petroleo">{entry.label}</h2>
+            <h2 className="text-lg font-black text-petroleo">{entry.label}</h2>
             <p className="text-sm text-tenue">{entry.when}</p>
             <form className="mt-4 space-y-6" onSubmit={(e) => { e.preventDefault(); save(); }} noValidate>
               <fieldset className="space-y-3">
-                <legend className="text-sm font-bold text-petroleo">Autoría</legend>
+                <legend className="text-sm font-black text-petroleo">Autoría</legend>
                 {authors.fields.length === 0 && <p className="text-sm text-tenue">Sin autor: el título ocupará la posición del autor. Úsalo solo si la obra no indica autor ni institución.</p>}
                 {authors.fields.map((f, i) => {
                   const kind = values.authors[i]?.kind;
                   return (
-                    <div key={f.id} className="rounded-lg border border-borde p-3">
+                    <div key={f.id} className="rounded-2xl border-2 border-borde p-4">
                       <div className="mb-2 flex flex-wrap items-center gap-3 text-sm">
                         <span className="font-semibold">Autor {i + 1}</span>
                         <label className="flex items-center gap-1"><input type="radio" value="person" {...register(`authors.${i}.kind`)} /> Persona</label>
@@ -209,7 +209,7 @@ export function GeneratorPage() {
               </fieldset>
 
               <fieldset className="space-y-3">
-                <legend className="text-sm font-bold text-petroleo">Fecha</legend>
+                <legend className="text-sm font-black text-petroleo">Fecha</legend>
                 <div className="grid gap-3 sm:grid-cols-4">
                   <Field label="Año" htmlFor="year" error={fieldError("date.year")} required={!values.noDate}>
                     <input id="year" inputMode="numeric" maxLength={4} className={inputClass} disabled={values.noDate} {...register("year")} />
@@ -231,7 +231,7 @@ export function GeneratorPage() {
               </fieldset>
 
               <fieldset className="space-y-3">
-                <legend className="text-sm font-bold text-petroleo">Datos de la obra</legend>
+                <legend className="text-sm font-black text-petroleo">Datos de la obra</legend>
                 <Field label="Título" htmlFor="title" error={fieldError("title")} required help="Escríbelo como aparece; en APA se usa tipo oración (mayúscula inicial y nombres propios).">
                   <input id="title" className={inputClass} {...register("title")} />
                 </Field>
@@ -272,18 +272,18 @@ export function GeneratorPage() {
           </Card>
 
           <Card className="lg:sticky lg:bottom-4">
-            <h2 className="text-lg font-semibold text-petroleo">Vista previa</h2>
+            <h2 className="text-lg font-black text-petroleo">Vista previa</h2>
             <div aria-live="polite">
               {result.ok ? (
                 <>
-                  <p className="hanging mt-3 rounded-lg bg-fondo p-4 font-serif text-base leading-loose" data-testid="reference-preview"><SegmentsView segments={result.output.segments} /></p>
+                  <p className="hanging mt-3 rounded-2xl border-2 border-celeste bg-celeste-50 p-4 font-serif text-base leading-loose" data-testid="reference-preview"><SegmentsView segments={result.output.segments} /></p>
                   <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
                     <div><dt className="font-semibold">Cita parentética</dt><dd data-testid="parenthetical">{result.output.parenthetical_citation}</dd>
                       {result.output.subsequent_parenthetical && <dd className="text-xs text-tenue">Citas posteriores: {result.output.subsequent_parenthetical}</dd>}</div>
                     <div><dt className="font-semibold">Cita narrativa</dt><dd data-testid="narrative">{result.output.narrative_citation}</dd></div>
                   </dl>
                   {result.output.warnings.length > 0 && (
-                    <ul className="mt-3 list-disc space-y-1 rounded-lg bg-naranja-50 p-3 pl-7 text-sm">{result.output.warnings.map((w) => <li key={w}>{w}</li>)}</ul>
+                    <ul className="mt-3 list-disc space-y-1 rounded-2xl border-2 border-naranja bg-naranja-50 p-3 pl-7 text-sm font-semibold">{result.output.warnings.map((w) => <li key={w}>{w}</li>)}</ul>
                   )}
                 </>
               ) : (
